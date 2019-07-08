@@ -9,13 +9,19 @@ public  class MonPremierJPA {
     public  static  void main(String... args) {
 
 
-        // TODO creer entity manager
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa-test") ;
+
+        EntityManager em = emf.createEntityManager() ;
+
+        Book book =  new Book() ;
+        book.setTitle("mon 1er livre");
+        em.getTransaction().begin() ;
+        em.persist(book) ;
+        em.getTransaction().commit() ;
+
+        System.out.println("Id = " + book.getId()) ;
 
 
-        // TODO creer un nouveau book
-        //TODO sauvegarder le book
-
-        // TODO afficher l'id du book sauvegardé
 
     }
 }
